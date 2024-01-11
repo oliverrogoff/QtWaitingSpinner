@@ -44,22 +44,23 @@ class WaitingSpinner(QWidget):
         disable_parent_when_spinning: bool = False,
         modality: Qt.WindowModality = Qt.WindowModality.NonModal,
         roundness: float = 100.0,
+        opacity: float = math.pi,
         fade: float = 80.0,
         lines: int = 20,
         line_length: int = 10,
         line_width: int = 2,
         radius: int = 10,
         speed: float = math.pi / 2,
-        color: QColor = QColor(0, 0, 0),
+        color: tuple[int, int, int] = (0, 0, 0),
     ) -> None:
         super().__init__(parent)
 
         self._center_on_parent: bool = center_on_parent
         self._disable_parent_when_spinning: bool = disable_parent_when_spinning
 
-        self._color: QColor = color
+        self._color: QColor = QColor(color[0], color[1], color[2])
         self._roundness: float = roundness
-        self._minimum_trail_opacity: float = math.pi
+        self._minimum_trail_opacity: float = opacity
         self._trail_fade_percentage: float = fade
         self._revolutions_per_second: float = speed
         self._number_of_lines: int = lines
