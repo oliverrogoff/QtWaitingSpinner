@@ -28,9 +28,9 @@ SOFTWARE.
 
 import math
 
-from PyQt5.QtCore import QRect, Qt, QTimer
-from PyQt5.QtGui import QColor, QPainter, QPaintEvent
-from PyQt5.QtWidgets import QWidget
+from PyQt6.QtCore import QRect, Qt, QTimer
+from PyQt6.QtGui import QColor, QPainter, QPaintEvent
+from PyQt6.QtWidgets import QWidget
 
 
 # pylint: disable=too-many-instance-attributes,too-many-arguments
@@ -42,7 +42,7 @@ class WaitingSpinner(QWidget):
         parent: QWidget,
         center_on_parent: bool = True,
         disable_parent_when_spinning: bool = False,
-        modality: Qt.WindowModality = Qt.NonModal,
+        modality: Qt.WindowModality = Qt.WindowModality.NonModal,
         roundness: float = 100.0,
         fade: float = 80.0,
         lines: int = 20,
@@ -76,19 +76,19 @@ class WaitingSpinner(QWidget):
         self.hide()
 
         self.setWindowModality(modality)
-        self.setAttribute(Qt.WA_TranslucentBackground)
+        self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
 
     def paintEvent(self, _: QPaintEvent) -> None:  # pylint: disable=invalid-name
         """Paint the WaitingSpinner."""
         self._update_position()
         painter = QPainter(self)
-        painter.fillRect(self.rect(), Qt.transparent)
-        painter.setRenderHint(QPainter.Antialiasing, True)
+        painter.fillRect(self.rect(), Qt.GlobalColor.transparent)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing, True)
 
         if self._current_counter >= self._number_of_lines:
             self._current_counter = 0
 
-        painter.setPen(Qt.NoPen)
+        painter.setPen(Qt.PenStyle.NoPen)
         for i in range(self._number_of_lines):
             painter.save()
             painter.translate(
@@ -118,7 +118,7 @@ class WaitingSpinner(QWidget):
                 ),
                 self._roundness,
                 self._roundness,
-                Qt.RelativeSize,
+                Qt.SizeMode.RelativeSize,
             )
             painter.restore()
 
@@ -153,7 +153,7 @@ class WaitingSpinner(QWidget):
         return self._color
 
     @color.setter
-    def color(self, color: Qt.GlobalColor = Qt.black) -> None:
+    def color(self, color: Qt.GlobalColor = Qt.GlobalColor.black) -> None:
         """Set color of WaitingSpinner."""
         self._color = QColor(color)
 
