@@ -27,4 +27,7 @@ build-QtWaitingSpinnerTest-Desktop_Qt_5_3_GCC_64bit-Debug*
 __pycache__
 
 .venv
+venv
+.idea
+dev/
 dist

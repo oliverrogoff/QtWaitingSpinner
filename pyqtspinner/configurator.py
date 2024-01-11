@@ -2,8 +2,8 @@ import math
 import sys
 from random import random
 
-from PyQt5.QtCore import Qt, pyqtSlot
-from PyQt5.QtWidgets import (
+from PyQt6.QtCore import Qt, pyqtSlot
+from PyQt6.QtWidgets import (
     QApplication,
     QColorDialog,
     QDoubleSpinBox,
@@ -17,7 +17,8 @@ from PyQt5.QtWidgets import (
     QWidget,
 )
 
-from .spinner import WaitingSpinner
+# from .spinner import WaitingSpinner
+from pyqtspinner.spinner import WaitingSpinner
 
 
 # pylint: disable=too-many-instance-attributes,too-many-statements
@@ -51,7 +52,7 @@ class SpinnerConfigurator(QWidget):
         button_hbox = QHBoxLayout()
         self.setLayout(grid)
         self.setWindowTitle("QtWaitingSpinner Configurator")
-        self.setWindowFlags(Qt.Dialog)
+        self.setWindowFlags(Qt.WindowType.Dialog)
 
         # SPINNER
         self.spinner = WaitingSpinner(self)
@@ -196,10 +197,10 @@ class SpinnerConfigurator(QWidget):
         msg_box.setText(text)
         msg_box.setWindowTitle("Text was copied to clipboard")
         clipboard = QApplication.clipboard()
-        clipboard.clear(mode=clipboard.Clipboard)
-        clipboard.setText(text, mode=clipboard.Clipboard)
+        clipboard.clear()
+        clipboard.setText(text)
         print(text)
-        msg_box.exec_()
+        msg_box.exec()
 
 
 def main():
