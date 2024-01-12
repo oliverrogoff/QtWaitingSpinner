@@ -36,7 +36,7 @@ setters:
 You can easily adjust spinner settings by running:
 
 ```bash
-pyqtspinner-conf
+qspin-conf
 ```
 
 ![configuration](https://raw.githubusercontent.com/fbjorn/QtWaitingSpinner/master/static/config.png)

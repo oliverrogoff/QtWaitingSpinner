@@ -25,12 +25,11 @@ dependencies = [
 dynamic = ["version", "readme"]
 
 [project.gui-scripts]
-qspin-designer = "pyqtspinner.configurator:main"
+qspin-designer = "qspin.configurator:main"
 
 [tool.setuptools.dynamic]
 version = {attr = "qspin.__version__"}
 readme = {file = ["README.md"]}
-dependencies = {file = ["requirements.txt"]}
 
 [tool.setuptools.packages.find]
 include = ["pyqtspinner*"]
