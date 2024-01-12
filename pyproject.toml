@@ -8,7 +8,7 @@ authors = [
     {name = "Oliver Rogoff", email = "oliverogoff4@gmail.com"},
 ]
 description = "A module for adding loading spinner widgets to a PyQt6 project"
-readme = "README.md"
+# readme = "README.md"
 requires-python = ">=3.6.1"
 
 license = {file = 'LICENSE.md'}
