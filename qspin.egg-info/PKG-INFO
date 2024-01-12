@@ -1,0 +1,113 @@
+Metadata-Version: 2.1
+Name: qspin
+Version: 0.0.0
+Summary: A module for adding loading spinner widgets to a PyQt6 project
+Author-email: Oliver Rogoff <oliverogoff4@gmail.com>
+License: The MIT License (MIT)
+        
+        Copyright (c) 2012-2014 Alexander Turkin Copyright (c) 2014 William Hallatt Copyright
+        (c) 2015 Jacob Dawid Copyright (c) 2016 Luca Weiss
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this
+        software and associated documentation files (the "Software"), to deal in the Software
+        without restriction, including without limitation the rights to use, copy, modify,
+        merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+        permit persons to whom the Software is furnished to do so, subject to the following
+        conditions:
+        
+        The above copyright notice and this permission notice shall be included in all copies or
+        substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+        INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+        PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+        LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT
+        OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+        OTHER DEALINGS IN THE SOFTWARE.
+        
+Classifier: Framework :: PyQt6
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6.1
+Description-Content-Type: text/x-rst
+License-File: LICENSE.md
+Requires-Dist: PyQt6==6.6.1
+Requires-Dist: PyQt6-Qt6==6.6.1
+Requires-Dist: PyQt6-sip==13.6.0
+
+# QtWaitingSpinner
+
+[![PyPI version](https://badge.fury.io/py/pyqtspinner.svg)](https://badge.fury.io/py/pyqtspinner)
+
+QtWaitingSpinner is a highly configurable, custom Qt widget for showing "waiting" or
+"loading" spinner icons in Qt applications, e.g. the spinners below are all
+QtWaitingSpinner widgets differing only in their configuration:
+
+![waiting spinner](https://raw.githubusercontent.com/z3ntu/QtWaitingSpinner/gh-pages/waiting-spinners.gif)
+
+The widget is pretty customizable:
+
+![examples](https://raw.githubusercontent.com/fbjorn/QtWaitingSpinner/master/static/examples.png)
+
+### Installation
+
+`pip install pyqtspinner`
+
+### Configuration
+
+The following properties can all be controlled directly through their corresponding
+setters:
+
+- Color of the widget
+- "Roundness" of the lines
+- Speed (rotations per second)
+- Number of lines to be drawn
+- Line length
+- Line width
+- Radius of the spinner's "dead space" or inner circle
+- The percentage fade of the "trail"
+- The minimum opacity of the "trail"
+
+### Usage
+
+You can easily adjust spinner settings by running:
+
+```bash
+qspin-conf
+```
+
+![configuration](https://raw.githubusercontent.com/fbjorn/QtWaitingSpinner/master/static/config.png)
+
+Make the spinner you would like and press "show init args" button. It will generate the
+code snippet which is almost ready-to-use:
+
+```python
+WaitingSpinner(
+    parent,
+    roundness=100.0,
+    opacity=3.141592653589793,
+    fade=80.0,
+    radius=10,
+    lines=20,
+    line_length=10,
+    line_width=2,
+    speed=1.5707963267948966,
+    color=(0, 0, 0)
+)
+```
+
+As an alternative example, the code below will create a spinner that (1) blocks all user
+input to the main application for as long as the spinner is active, (2) automatically
+centers itself on its parent widget every time "start" is called and (3) makes use of
+the default shape, size and color settings.
+
+```python
+spinner = QtWaitingSpinner(self, True, True, Qt.ApplicationModal)
+spinner.start() # starts spinning
+```
+
+Enjoy!
+
+### Thanks:
+
+to [@z3ntu](https://github.com/z3ntu) for the groundwork. to
+[@snowwlex](https://github.com/snowwlex) for the widget itself.

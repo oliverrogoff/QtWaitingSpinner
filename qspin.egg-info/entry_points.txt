@@ -1,0 +1,2 @@
+[gui_scripts]
+qspin-designer = qspin.configurator:main

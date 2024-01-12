@@ -1,0 +1,4 @@
+dist
+qspin
+static
+venv

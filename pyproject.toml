@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "qspin"
+#version = "0.0.1"
 authors = [
     {name = "Oliver Rogoff", email = "oliverogoff4@gmail.com"},
 ]
 description = "A module for adding loading spinner widgets to a PyQt6 project"
-# readme = "README.md"
 requires-python = ">=3.6.1"
 
 license = {file = 'LICENSE.md'}
@@ -22,15 +22,15 @@ dependencies = [
     "PyQt6-Qt6==6.6.1",
     "PyQt6-sip==13.6.0"
 ]
+
 dynamic = ["version", "readme"]
 
 [project.gui-scripts]
 qspin-designer = "qspin.configurator:main"
 
 [tool.setuptools.dynamic]
-version = {attr = "qspin.__version__"}
+version = {file = "qspin.version.py"}
 readme = {file = ["README.md"]}
 
 [tool.setuptools.packages.find]
-include = ["pyqtspinner*"]
 exclude = ["dev*"]
