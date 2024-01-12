@@ -33,7 +33,6 @@ from PyQt6.QtGui import QColor, QPainter, QPaintEvent
 from PyQt6.QtWidgets import QWidget
 
 
-# pylint: disable=too-many-instance-attributes,too-many-arguments
 class WaitingSpinner(QWidget):
     """WaitingSpinner is a highly configurable, custom spinner widget."""
 

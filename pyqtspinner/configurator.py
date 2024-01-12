@@ -17,11 +17,9 @@ from PyQt6.QtWidgets import (
     QWidget,
 )
 
-# from .spinner import WaitingSpinner
-from pyqtspinner.spinner import WaitingSpinner
+from .spinner import WaitingSpinner
 
 
-# pylint: disable=too-many-instance-attributes,too-many-statements
 class SpinnerConfigurator(QWidget):
     sb_roundness = None
     sb_opacity = None
@@ -205,5 +203,5 @@ class SpinnerConfigurator(QWidget):
 
 def main():
     app = QApplication(sys.argv)
-    configurator = SpinnerConfigurator()  # noqa
+    configurator = SpinnerConfigurator()
     sys.exit(app.exec())
